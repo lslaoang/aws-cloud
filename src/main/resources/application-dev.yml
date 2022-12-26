@@ -1,2 +1,7 @@
 server:
   port: 5000
+
+  error:
+    path: /error
+    whitelabel:
+      enabled: false
