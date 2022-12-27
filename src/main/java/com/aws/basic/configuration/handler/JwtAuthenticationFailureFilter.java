@@ -26,11 +26,13 @@ public class JwtAuthenticationFailureFilter {
     }
 
     private AuthenticationFailureHandler authenticationFailureHandler() {
+
         return (((request, response, exception) -> {
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             if (exception.getMessage().contains("Jwt expired")) {
                 //Provide your customized message here
+
                 writeErrorResponse(response, new AccessDenied().message("Token provided is expired."));
                 LOGGER.severe(String.format("Access from %s denied. Token expired. ", request.getRemoteAddr()) + exception.getMessage());
             } else {
@@ -40,6 +42,7 @@ public class JwtAuthenticationFailureFilter {
             }
 
         }));
+
     }
 
 }
