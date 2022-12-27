@@ -5,3 +5,17 @@ server:
     path: /error
     whitelabel:
       enabled: false
+
+#Azure Server Configuration
+azure:
+  activedirectory:
+    tenant-id: a42e43e2-c7b8-499c-89a6-4b9bac2d5a6e
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+    com:
+      azure:
+        spring: TRACE
